@@ -9,4 +9,11 @@
     <string name="hello_info_fragment">hello_info_fragment</string>
     <string name="hello_rewards_fragment">hello_rewards_fragment</string>
     <string name="hello_settings_fragment">hello_settings_fragment</string>
+    <string name="anythinggreen">AnythingGreen</string>
+    <string name="todo">TODO</string>
+    <string name="night_mode">Night Mode</string>
+    <string name="capture_material">Material</string>
+    <string name="take_picture">Take Picture</string>
+    <string name="launch_gallery">Launch Gallery</string>
+    <string name="classified_as">Type of Material</string>
 </resources>

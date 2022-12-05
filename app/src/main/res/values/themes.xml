@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.AnythingGreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/bg_color</item>
+        <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -13,4 +13,24 @@
         <item name="android:statusBarColor">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="nightModeSwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/primary</item>
+        <item name="colorSwitchThumbNormal">@color/white</item>
+        <item name="android:colorForeground">@color/tertiary</item>
+    </style>
+
+    <!-- Light Mode -->
+    <style name="Screen">
+        <item name="android:background">@drawable/fragment_bg</item>
+    </style>
+
+    <!-- TODO: MODIFY
+    <style name="PrimaryText">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="SecondaryText">
+        <item name="android:textColor">@color/white</item>
+    </style> -->
 </resources>
