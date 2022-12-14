@@ -8,7 +8,7 @@
     tools:context=".RewardsFragment">
 
     <TextView
-        android:id="@+id/settings_title"
+        android:id="@+id/rewards_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
@@ -21,5 +21,273 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rewards_filler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rewards_title" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="70dp"
+        android:paddingVertical="10dp"
+        android:text="@string/you_have_recycled_a_total_of"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rewards_filler" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/info_bg"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <TextView
+            android:id="@+id/total_trash"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:text="@string/todo"
+            android:textAlignment="center"
+            android:textColor="@color/neon_green"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:text="@string/of_trash"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="100dp"
+        android:paddingVertical="10dp"
+        android:text="@string/composed_of"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="163dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/info_bg"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <TextView
+            android:id="@+id/total_clothes"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/todo"
+            android:textAlignment="center"
+            android:textColor="@color/neon_green"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/clothes"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/of_clothes"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="163dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/info_bg"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <TextView
+            android:id="@+id/total_ewaste"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/todo"
+            android:textAlignment="center"
+            android:textColor="@color/neon_green"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/ewaste"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/of_e_waste"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="163dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/info_bg"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <TextView
+            android:id="@+id/total_glass"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/todo"
+            android:textAlignment="center"
+            android:textColor="@color/neon_green"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/glass"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/of_glass"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="163dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/info_bg"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/total_metal"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/todo"
+            android:textAlignment="center"
+            android:textColor="@color/neon_green"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/metal"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/of_metal"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="163dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/info_bg"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <TextView
+            android:id="@+id/total_paper"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/todo"
+            android:textAlignment="center"
+            android:textColor="@color/neon_green"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/paper"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/of_paper"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="163dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/info_bg"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout6"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+        <TextView
+            android:id="@+id/total_plastic"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/todo"
+            android:textAlignment="center"
+            android:textColor="@color/neon_green"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/plastic"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/of_plastics"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

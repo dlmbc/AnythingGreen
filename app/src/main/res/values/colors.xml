@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lamp_black">#231F20</color>
+    <color name="neon_green">#C9E265</color>
 
     <color name="primary">#477B72</color>
     <color name="secondary">#C2C2C2</color>

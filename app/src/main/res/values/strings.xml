@@ -16,4 +16,23 @@
     <string name="take_picture">Take Picture</string>
     <string name="launch_gallery">Launch Gallery</string>
     <string name="classified_as">Type of Material</string>
+    <string name="material_info">Material Information</string>
+    <string name="years_to_decompose">Years to decompose</string>
+    <string name="made_out_of">Made out of</string>
+    <string name="how_to_recycle">How to recycle?</string>
+    <string name="language">Language</string>
+    <string name="about_us">About Us</string>
+    <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="rate_this_app">Rate This App</string>
+    <string name="share_this_app">Share This App</string>
+    <string name="you_have_recycled_a_total_of">You have recycled a total of:</string>
+    <string name="of_trash">of trash</string>
+    <string name="composed_of">composed of:</string>
+    <string name="of_metal">of metal</string>
+    <string name="of_plastics">of plastics</string>
+    <string name="of_clothes">of clothes</string>
+    <string name="of_e_waste">of e-waste</string>
+    <string name="of_glass">of glass</string>
+    <string name="of_paper">of paper</string>
 </resources>

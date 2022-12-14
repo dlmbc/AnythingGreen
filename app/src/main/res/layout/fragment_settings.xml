@@ -32,49 +32,238 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/settings_title" />
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/settings_mode"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/settings_icons_bg"
+        android:contentDescription="@string/todo"
+        android:padding="7dp"
+        android:src="@drawable/ic_baseline_dark_mode_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settings_filler">
+        app:layout_constraintTop_toBottomOf="@+id/settings_filler" />
 
-        <ImageView
-            android:id="@+id/settings_mode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:background="@drawable/settings_icons_bg"
-            android:contentDescription="@string/todo"
-            android:padding="7dp"
-            android:src="@drawable/ic_baseline_dark_mode_24" />
+    <TextView
+        android:id="@+id/tv_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/night_mode"
+        android:textAlignment="viewStart"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/settings_mode"
+        app:layout_constraintTop_toBottomOf="@+id/settings_filler"
+        tools:ignore="RelativeOverlap" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="70dp"
-            android:text="@string/night_mode"
-            android:textAlignment="viewStart"
-            android:textSize="20sp"
-            tools:ignore="RelativeOverlap" />
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:switchMinWidth="50dp"
+        android:theme="@style/nightModeSwitch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_filler"
+        tools:ignore="TouchTargetSizeCheck" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switcher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="20dp"
-            android:switchMinWidth="50dp"
-            android:theme="@style/nightModeSwitch"
-            tools:ignore="TouchTargetSizeCheck" />
+    <ImageView
+        android:id="@+id/settings_lang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/settings_icons_bg"
+        android:contentDescription="@string/todo"
+        android:padding="7dp"
+        android:src="@drawable/ic_baseline_language_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_mode" />
 
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_lang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="35dp"
+        android:text="@string/language"
+        android:textAlignment="viewStart"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/settings_lang"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mode"
+        tools:ignore="RelativeOverlap" />
+
+    <Button
+        android:id="@+id/btn_lang"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        app:icon="@drawable/ic_baseline_keyboard_arrow_right_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switcher"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/settings_about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/settings_icons_bg"
+        android:contentDescription="@string/todo"
+        android:padding="7dp"
+        android:src="@drawable/ic_baseline_help_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_lang" />
+
+    <TextView
+        android:id="@+id/tv_about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/about_us"
+        android:textAlignment="viewStart"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/settings_about"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lang"
+        tools:ignore="RelativeOverlap" />
+
+    <ImageView
+        android:id="@+id/settings_terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/settings_icons_bg"
+        android:contentDescription="@string/todo"
+        android:padding="7dp"
+        android:src="@drawable/ic_baseline_priority_high_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_about" />
+
+    <TextView
+        android:id="@+id/tv_terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/terms_conditions"
+        android:textAlignment="viewStart"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/settings_terms"
+        app:layout_constraintTop_toBottomOf="@+id/tv_about"
+        tools:ignore="RelativeOverlap" />
+
+    <ImageView
+        android:id="@+id/settings_priv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/settings_icons_bg"
+        android:contentDescription="@string/todo"
+        android:padding="7dp"
+        android:src="@drawable/ic_baseline_lock_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_terms" />
+
+    <TextView
+        android:id="@+id/tv_priv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:text="@string/privacy_policy"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/settings_priv"
+        app:layout_constraintTop_toBottomOf="@+id/tv_terms"
+        tools:ignore="RelativeOverlap" />
+
+    <ImageView
+        android:id="@+id/settings_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/settings_icons_bg"
+        android:contentDescription="@string/todo"
+        android:padding="7dp"
+        android:src="@drawable/ic_baseline_star_rate_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_priv" />
+
+    <TextView
+        android:id="@+id/tv_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:text="@string/rate_this_app"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/settings_rate"
+        app:layout_constraintTop_toBottomOf="@+id/tv_priv"
+        tools:ignore="RelativeOverlap" />
+
+    <ImageView
+        android:id="@+id/settings_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/settings_icons_bg"
+        android:contentDescription="@string/todo"
+        android:padding="7dp"
+        android:src="@drawable/ic_baseline_share_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_rate" />
+
+    <TextView
+        android:id="@+id/tv_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/share_this_app"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/settings_share"
+        app:layout_constraintTop_toBottomOf="@+id/tv_rate"
+        tools:ignore="RelativeOverlap" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
