@@ -18,7 +18,7 @@
     <string name="classified_as">Type of Material</string>
     <string name="material_info">Material Information</string>
     <string name="years_to_decompose">Years to decompose</string>
-    <string name="made_out_of">Made out of</string>
+    <string name="made_out_of">Made out of\n</string>
     <string name="how_to_recycle">How to recycle?</string>
     <string name="language">Language</string>
     <string name="about_us">About Us</string>
