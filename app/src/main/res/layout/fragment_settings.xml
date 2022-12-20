@@ -11,12 +11,13 @@
         android:id="@+id/settings_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp"
+        android:paddingTop="12dp"
         android:paddingBottom="10dp"
         android:text="@string/settings"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
+        style="@style/Text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,6 +59,7 @@
         android:text="@string/night_mode"
         android:textAlignment="viewStart"
         android:textSize="20sp"
+        style="@style/Text"
         app:layout_constraintStart_toEndOf="@+id/settings_mode"
         app:layout_constraintTop_toBottomOf="@+id/settings_filler"
         tools:ignore="RelativeOverlap" />
@@ -102,6 +104,7 @@
         android:text="@string/language"
         android:textAlignment="viewStart"
         android:textSize="20sp"
+        style="@style/Text"
         app:layout_constraintStart_toEndOf="@+id/settings_lang"
         app:layout_constraintTop_toBottomOf="@+id/tv_mode"
         tools:ignore="RelativeOverlap" />
@@ -132,6 +135,7 @@
         android:text="@string/about_us"
         android:textAlignment="viewStart"
         android:textSize="20sp"
+        style="@style/Text"
         app:layout_constraintStart_toEndOf="@+id/settings_about"
         app:layout_constraintTop_toBottomOf="@+id/tv_lang"
         tools:ignore="RelativeOverlap" />
@@ -162,6 +166,7 @@
         android:text="@string/terms_conditions"
         android:textAlignment="viewStart"
         android:textSize="20sp"
+        style="@style/Text"
         app:layout_constraintStart_toEndOf="@+id/settings_terms"
         app:layout_constraintTop_toBottomOf="@+id/tv_about"
         tools:ignore="RelativeOverlap" />
@@ -191,6 +196,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         android:textSize="20sp"
+        style="@style/Text"
         app:layout_constraintStart_toEndOf="@+id/settings_priv"
         app:layout_constraintTop_toBottomOf="@+id/tv_terms"
         tools:ignore="RelativeOverlap" />
@@ -220,6 +226,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         android:textSize="20sp"
+        style="@style/Text"
         app:layout_constraintStart_toEndOf="@+id/settings_rate"
         app:layout_constraintTop_toBottomOf="@+id/tv_priv"
         tools:ignore="RelativeOverlap" />
@@ -246,9 +253,10 @@
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:text="@string/share_this_app"
         android:textSize="20sp"
+        style="@style/Text"
         app:layout_constraintStart_toEndOf="@+id/settings_share"
         app:layout_constraintTop_toBottomOf="@+id/tv_rate"
         tools:ignore="RelativeOverlap" />

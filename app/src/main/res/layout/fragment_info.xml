@@ -28,17 +28,17 @@
 
         <TextView
             android:id="@+id/material_info"
+            style="@style/Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:padding="5dp"
-            android:textColor="@color/black"
-            android:textSize="18sp"
             android:text="@string/material_info"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/material_type"
             app:layout_constraintStart_toEndOf="@+id/material_img"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/material_type"
@@ -46,10 +46,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:padding="5dp"
-            android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:text="@string/todo"
+            style="@style/Text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/material_img"
             app:layout_constraintTop_toBottomOf="@+id/material_info"/>
@@ -96,7 +95,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/todo"
                 android:textColor="@color/white"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -142,7 +140,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/todo"
                 android:textAlignment="viewStart"
                 android:textColor="@color/white"
                 android:textSize="30sp"
@@ -199,7 +196,6 @@
                 android:id="@+id/recycle_ways"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/todo"
                 android:textAlignment="viewStart"
                 android:textColor="@color/white"
                 android:textSize="16sp"
@@ -252,7 +248,6 @@
                 android:layout_height="200dp"
                 android:padding="20dp"
                 android:scrollbars="vertical"
-                android:text="At lorem ipsum rutrum sapien fermentum feugiat. Consectetur ullamcorper semper lectus risus commodo ultrices! Penatibus nisl est tempor pulvinar penatibus mattis iaculis hendrerit nam imperdiet etiam. Maecenas ornare venenatis nibh odio cras lobortis lectus gravida arcu. Sagittis lobortis erat mauris. Integer suspendisse, erat feugiat. A pellentesque ut etiam vestibulum euismod duis penatibus consequat primis. Posuere ac dictum himenaeos consequat."
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"

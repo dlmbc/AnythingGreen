@@ -3,7 +3,7 @@ package com.example.anythinggreen;
 import static android.app.Activity.RESULT_OK;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -40,27 +40,30 @@ public class HomeFragment extends Fragment {
     Button picture, gallery;
     int imageSize = 224;
 
+
     @Override
-    @NonNull
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        result = (TextView) view.findViewById(R.id.result);
-        accuracy = (TextView) view.findViewById(R.id.accuracy);
-        imageView = (ImageView) view.findViewById(R.id.imageView);
-        picture = (Button) view.findViewById(R.id.picture);
-        gallery = (Button) view.findViewById(R.id.gallery);
+        result = view.findViewById(R.id.result);
+        accuracy = view.findViewById(R.id.accuracy);
+        imageView = view.findViewById(R.id.imageView);
+        picture = view.findViewById(R.id.picture);
+        gallery = view.findViewById(R.id.gallery);
 
         picture.setOnClickListener(v -> {
             // Launch camera if we have permission
-            if (getActivity().checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
-                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent, 3);
-            } else {
+            if (ContextCompat.checkSelfPermission(getActivity(),
+                    Manifest.permission.CAMERA)
+                    != PackageManager.PERMISSION_GRANTED) {
+
                 //Request camera permission if we don't have it.
                 requestPermissions(new String[]{Manifest.permission.CAMERA}, 100);
+            } else {
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, 3);
             }
         });
 
@@ -113,14 +116,21 @@ public class HomeFragment extends Fragment {
                 }
             }
             String[] classes = {"E-waste", "Glass", "Metal", "Paper", "Plastic", "Clothes"};
-            result.setText(classes[maxPos]);
 
-            StringBuilder s = new StringBuilder();
-            for(int i = 0; i < classes.length; i++){
-                s.append(String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100));
+            if(maxConfidence >= 0.70) {
+                result.setText(classes[maxPos]);
+
+                StringBuilder s = new StringBuilder();
+                for(int i = 0; i < classes.length; i++){
+                    s.append(String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100));
+                }
+                accuracy.setText(s.toString());
+
             }
-            accuracy.setText(s.toString());
-
+            else {
+                result.setText(R.string.res_home);
+                accuracy.setText("");
+            }
 
             // Releases model resources if no longer used.
             model.close();

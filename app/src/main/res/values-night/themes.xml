@@ -22,15 +22,9 @@
 
     <!-- Light Mode -->
     <style name="Screen">
-        <item name="android:background">@drawable/fragment_bg</item>
+        <item name="android:background">@drawable/fragment_bg_night</item>
     </style>
-
-    <!-- TODO: MODIFY
-    <style name="PrimaryText">
+    <style name="Text">
         <item name="android:textColor">@color/white</item>
     </style>
-
-    <style name="SecondaryText">
-        <item name="android:textColor">@color/black</item>
-    </style> -->
 </resources>
