@@ -2,7 +2,10 @@ package com.example.anythinggreen;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +17,7 @@ public class InfoFragment extends Fragment {
 
     ImageView material_img;
     TextView material_type, years, made_of, recycle_ways, mat_desc;
+    String material;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,5 +33,19 @@ public class InfoFragment extends Fragment {
         mat_desc = view.findViewById(R.id.mat_desc);
 
         return view;
+    }
+
+    // Use the onViewCreated method to initialize the TextView and observe the value of the TextView as it is ran after view is created
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        // Get a reference to the view model
+        SharedViewModel viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+        viewModel.getClassification().observe(getViewLifecycleOwner(), value -> {
+            // Store value to String material
+            material = value;
+            // Set String material as text to material_type TextView
+            material_type.setText(material);
+        });
     }
 }

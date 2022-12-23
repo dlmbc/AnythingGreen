@@ -1,63 +1,65 @@
 package com.example.anythinggreen;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.os.Bundle;
-import android.view.MenuItem;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.example.anythinggreen.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
     private ViewPager2 viewPager2;
-    private BottomNavigationView bottomNavigationView;
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         viewPager2 = findViewById(R.id.view_pager2);
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
-        // Set up the ViewPager2 with a FragmentStateAdapter
+        // Set up the ViewPager2 with FragmentStateAdapter MyFragmentStateAdapter
         viewPager2.setAdapter(new MyFragmentStateAdapter(this));
 
-        // Set up the BottomNavigationView with a OnNavigationItemSelectedListener
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.home:
-                        viewPager2.setCurrentItem(0);
-                        return true;
-                    case R.id.information:
-                        viewPager2.setCurrentItem(1);
-                        return true;
-                    case R.id.rewards:
-                        viewPager2.setCurrentItem(2);
-                        return true;
-                    case R.id.settings:
-                        viewPager2.setCurrentItem(3);
-                        return true;
-                    default:
-                        return false;
-                }
+        // Disables swiping in ViewPager2
+        viewPager2.setUserInputEnabled(false);
+
+        // Implements bottomNavigationView using setOnItemSelectedListener
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()){
+                case R.id.home:
+                    viewPager2.setCurrentItem(0);
+                    return true;
+                case R.id.information:
+                    viewPager2.setCurrentItem(1);
+                    return true;
+                case R.id.rewards:
+                    viewPager2.setCurrentItem(2);
+                    return true;
+                case R.id.settings:
+                    viewPager2.setCurrentItem(3);
+                    return true;
+                default:
+                    return false;
             }
         });
     }
 
+    // Create an inner class for MyFragmentStateAdapter as FragmentStateAdapter to be set on viewPager2
     private static class MyFragmentStateAdapter extends FragmentStateAdapter {
         MyFragmentStateAdapter(FragmentActivity fragmentActivity){
             super(fragmentActivity);
         }
 
+        @NonNull
         public Fragment createFragment(int position){
             switch (position){
                 case 0:
@@ -74,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public int getItemCount(){
+            // Return the number of fragments
             return 4;
         }
     }

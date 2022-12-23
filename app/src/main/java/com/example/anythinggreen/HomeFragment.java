@@ -3,6 +3,7 @@ package com.example.anythinggreen;
 import static android.app.Activity.RESULT_OK;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
 import android.content.Intent;
@@ -39,6 +41,7 @@ public class HomeFragment extends Fragment {
     ImageView imageView;
     Button picture, gallery;
     int imageSize = 224;
+    SharedViewModel viewModel;
 
 
     @Override
@@ -52,6 +55,9 @@ public class HomeFragment extends Fragment {
         imageView = view.findViewById(R.id.imageView);
         picture = view.findViewById(R.id.picture);
         gallery = view.findViewById(R.id.gallery);
+
+        // Get a reference to the view model
+        viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
         picture.setOnClickListener(v -> {
             // Launch camera if we have permission
@@ -73,6 +79,17 @@ public class HomeFragment extends Fragment {
         });
 
         return view;
+    }
+
+    // Use the onViewCreated method to initialize the TextView and observe the value of the TextView as it is ran after view is created
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        // Observes changes in MutableLiveData<String> classification
+        viewModel.getClassification().observe(getViewLifecycleOwner(), value -> {
+            // Set text to TextView result using value of MutableLiveData<String> classification
+            result.setText(value);
+        });
     }
 
     public void classifyImage(Bitmap image){
@@ -118,7 +135,8 @@ public class HomeFragment extends Fragment {
             String[] classes = {"E-waste", "Glass", "Metal", "Paper", "Plastic", "Clothes"};
 
             if(maxConfidence >= 0.70) {
-                result.setText(classes[maxPos]);
+                // Sets the value of MutableLiveData<String> Classification
+                viewModel.setClassification(classes[maxPos]);
 
                 StringBuilder s = new StringBuilder();
                 for(int i = 0; i < classes.length; i++){
