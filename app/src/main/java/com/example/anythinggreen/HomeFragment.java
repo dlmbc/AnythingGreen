@@ -38,7 +38,7 @@ import com.example.anythinggreen.ml.Model;
 public class HomeFragment extends Fragment {
 
     TextView result, accuracy;
-    ImageView imageView;
+    ImageView imageToClassify;
     Button picture, gallery;
     int imageSize = 224;
     SharedViewModel viewModel;
@@ -52,7 +52,7 @@ public class HomeFragment extends Fragment {
 
         result = view.findViewById(R.id.result);
         accuracy = view.findViewById(R.id.accuracy);
-        imageView = view.findViewById(R.id.imageView);
+        imageToClassify = view.findViewById(R.id.imageToClassify);
         picture = view.findViewById(R.id.picture);
         gallery = view.findViewById(R.id.gallery);
 
@@ -137,6 +137,7 @@ public class HomeFragment extends Fragment {
             if(maxConfidence >= 0.70) {
                 // Sets the value of MutableLiveData<String> Classification
                 viewModel.setClassification(classes[maxPos]);
+                viewModel.setImageClassified(image);
 
                 StringBuilder s = new StringBuilder();
                 for(int i = 0; i < classes.length; i++){
@@ -165,7 +166,7 @@ public class HomeFragment extends Fragment {
                 Bitmap image = (Bitmap) data.getExtras().get("data");
                 int dimension = Math.min(image.getWidth(), image.getHeight());
                 image = ThumbnailUtils.extractThumbnail(image, dimension, dimension);
-                imageView.setImageBitmap(image);
+                imageToClassify.setImageBitmap(image);
 
                 image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
                 classifyImage(image);
@@ -177,7 +178,7 @@ public class HomeFragment extends Fragment {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                imageView.setImageBitmap(image);
+                imageToClassify.setImageBitmap(image);
 
                 image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
                 classifyImage(image);

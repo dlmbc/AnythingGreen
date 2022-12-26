@@ -41,13 +41,28 @@ public class InfoFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         // Get a reference to the view model
         SharedViewModel viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+
+        // Observe changes MutableLiveData<String> classification
         viewModel.getClassification().observe(getViewLifecycleOwner(), value -> {
             // Store value to String material
             material = value;
             // Set String material as text to material_type TextView
             material_type.setText(material);
+            // Provide information about material type
+            provideInformation();
+        });
 
-            if (material.equals("Plastic")) {
+        // Observe changes MutableLiveData<Bitmap> imageClassified
+        viewModel.getImageClassified().observe(getViewLifecycleOwner(), bitmap -> {
+            // Set Bitmap bitmap as material_img ImageView
+            material_img.setImageBitmap(bitmap);
+        });
+    }
+
+    private void provideInformation() {
+        // If material is plastic
+        switch (material) {
+            case "Plastic":
                 years.setText("450 years");
                 made_of.setText("polythylene terephthalat");
                 recycle_ways.setText("1. Leave the caps on" + "\n" +
@@ -55,11 +70,67 @@ public class InfoFragment extends Fragment {
                         "3. No need to rinse" + "\n" +
                         "4. Don't bag 'em");
                 mat_desc.setText("Billions of water bottles are used every year throughout the world.");
-            }
-            else {
-                // do something if material is something else
-            }
+                break;
 
-        });
+            // If material is e-waste
+            case "E-waste":
+                years.setText("450 years");
+                made_of.setText("polythylene terephthalat");
+                recycle_ways.setText("1. Leave the caps on" + "\n" +
+                        "2. Crush your bottle" + "\n" +
+                        "3. No need to rinse" + "\n" +
+                        "4. Don't bag 'em");
+                mat_desc.setText("Billions of water bottles are used every year throughout the world.");
+                break;
+
+            // If material is glass
+            case "Glass":
+                years.setText("450 years");
+                made_of.setText("polythylene terephthalat");
+                recycle_ways.setText("1. Leave the caps on" + "\n" +
+                        "2. Crush your bottle" + "\n" +
+                        "3. No need to rinse" + "\n" +
+                        "4. Don't bag 'em");
+                mat_desc.setText("Billions of water bottles are used every year throughout the world.");
+                break;
+
+            // If material is metal
+            case "Metal":
+                years.setText("450 years");
+                made_of.setText("polythylene terephthalat");
+                recycle_ways.setText("1. Leave the caps on" + "\n" +
+                        "2. Crush your bottle" + "\n" +
+                        "3. No need to rinse" + "\n" +
+                        "4. Don't bag 'em");
+                mat_desc.setText("Billions of water bottles are used every year throughout the world.");
+                break;
+
+            // If material is paper
+            case "Paper":
+                years.setText("450 years");
+                made_of.setText("polythylene terephthalat");
+                recycle_ways.setText("1. Leave the caps on" + "\n" +
+                        "2. Crush your bottle" + "\n" +
+                        "3. No need to rinse" + "\n" +
+                        "4. Don't bag 'em");
+                mat_desc.setText("Billions of water bottles are used every year throughout the world.");
+                break;
+
+            // If material is clothes
+            case "Clothes":
+                years.setText("450 years");
+                made_of.setText("polythylene terephthalat");
+                recycle_ways.setText("1. Leave the caps on" + "\n" +
+                        "2. Crush your bottle" + "\n" +
+                        "3. No need to rinse" + "\n" +
+                        "4. Don't bag 'em");
+                mat_desc.setText("Billions of water bottles are used every year throughout the world.");
+                break;
+
+            // If material is non-recyclable
+            default:
+                // do something if material is something else
+                break;
+        }
     }
 }
