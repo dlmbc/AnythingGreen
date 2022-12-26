@@ -46,6 +46,20 @@ public class InfoFragment extends Fragment {
             material = value;
             // Set String material as text to material_type TextView
             material_type.setText(material);
+
+            if (material.equals("Plastic")) {
+                years.setText("450 years");
+                made_of.setText("polythylene terephthalat");
+                recycle_ways.setText("1. Leave the caps on" + "\n" +
+                        "2. Crush your bottle" + "\n" +
+                        "3. No need to rinse" + "\n" +
+                        "4. Don't bag 'em");
+                mat_desc.setText("Billions of water bottles are used every year throughout the world.");
+            }
+            else {
+                // do something if material is something else
+            }
+
         });
     }
 }
