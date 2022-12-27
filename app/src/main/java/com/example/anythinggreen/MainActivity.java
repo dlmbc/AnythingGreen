@@ -1,13 +1,13 @@
 package com.example.anythinggreen;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -26,11 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
         viewPager2 = findViewById(R.id.view_pager2);
 
-        // Set up the ViewPager2 with FragmentStateAdapter MyFragmentStateAdapter
-        viewPager2.setAdapter(new MyFragmentStateAdapter(this));
-
         // Disables swiping in ViewPager2
         viewPager2.setUserInputEnabled(false);
+
+        // Set up transition between fragments on ViewPager2
+        viewPager2.setPageTransformer(new FadePageTransformer());
+
+        // Set up the ViewPager2 with FragmentStateAdapter MyFragmentStateAdapter
+        viewPager2.setAdapter(new MyFragmentStateAdapter(this));
 
         // Implements bottomNavigationView using setOnItemSelectedListener
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -78,6 +81,21 @@ public class MainActivity extends AppCompatActivity {
         public int getItemCount(){
             // Return the number of fragments
             return 4;
+        }
+    }
+
+    // Implements the fade in and out transition between fragments in the ViewPager2
+    private static class FadePageTransformer implements ViewPager2.PageTransformer {
+        @Override
+        public void transformPage(@NonNull View view, float position) {
+            view.setAlpha(0f);
+            view.setVisibility(View.VISIBLE);
+
+            // Start Animation for a period of time
+            view.animate()
+                    .alpha(1f)
+                    // Set duration in milliseconds
+                    .setDuration(50);
         }
     }
 }
