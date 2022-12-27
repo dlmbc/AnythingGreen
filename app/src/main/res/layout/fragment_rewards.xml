@@ -8,39 +8,36 @@
     tools:context=".RewardsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout4"
+        android:id="@+id/constraintRewardTitle"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/constraintTotalTrash"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/rewards_title"
-            android:layout_width="120dp"
+            style="@style/Text"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="12dp"
-            android:paddingBottom="10dp"
-            android:text="@string/rewards"
             android:gravity="center"
+            android:text="@string/rewards"
             android:textSize="20sp"
             android:textStyle="bold"
-            style="@style/Text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView"
+            style="@style/Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="70dp"
-            android:paddingVertical="10dp"
             android:text="@string/you_have_recycled_a_total_of"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold"
-            style="@style/Text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,37 +45,35 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="200dp"
+        android:id="@+id/constraintTotalTrash"
+        android:layout_width="163dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@drawable/info_bg"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout10"
+        app:layout_constraintBottom_toTopOf="@+id/constraintComposition"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
+        app:layout_constraintTop_toBottomOf="@+id/constraintRewardTitle">
 
         <TextView
             android:id="@+id/total_trash"
-            android:layout_width="155dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/todo"
+            android:text="@string/default_value"
             android:textAlignment="center"
             android:textColor="@color/neon_green"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintBottom_toTopOf="@+id/trash"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView6"
-            android:layout_width="155dp"
+            android:id="@+id/trash"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/of_trash"
             android:textAlignment="center"
@@ -93,25 +88,22 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout10"
+        android:id="@+id/constraintComposition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/constraintTotalTrash">
 
         <TextView
             android:id="@+id/textView2"
+            style="@style/Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="100dp"
-            android:paddingVertical="10dp"
             android:text="@string/composed_of"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold"
-            style="@style/Text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -120,23 +112,23 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/constraintClothes"
         android:layout_width="163dp"
         android:layout_height="wrap_content"
         android:background="@drawable/info_bg"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+        app:layout_constraintBottom_toTopOf="@+id/constraintGlass"
+        app:layout_constraintEnd_toStartOf="@+id/constraintEwaste"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout10">
+        app:layout_constraintTop_toBottomOf="@+id/constraintComposition">
 
         <TextView
             android:id="@+id/total_clothes"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/todo"
+            android:text="@string/default_value"
             android:textAlignment="center"
             android:textColor="@color/neon_green"
             android:textSize="25sp"
@@ -147,7 +139,7 @@
 
         <TextView
             android:id="@+id/clothes"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/of_clothes"
             android:textAlignment="center"
@@ -160,23 +152,22 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/constraintEwaste"
         android:layout_width="163dp"
         android:layout_height="wrap_content"
         android:background="@drawable/info_bg"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
+        android:gravity="center"
         android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintBottom_toTopOf="@+id/constraintMetal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout10">
+        app:layout_constraintStart_toEndOf="@+id/constraintClothes"
+        app:layout_constraintTop_toBottomOf="@+id/constraintComposition">
 
         <TextView
             android:id="@+id/total_ewaste"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="@string/todo"
+            android:text="@string/default_value"
             android:textAlignment="center"
             android:textColor="@color/neon_green"
             android:textSize="25sp"
@@ -200,23 +191,23 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/constraintGlass"
         android:layout_width="163dp"
         android:layout_height="wrap_content"
         android:background="@drawable/info_bg"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout5"
+        app:layout_constraintBottom_toTopOf="@+id/constraintPaper"
+        app:layout_constraintEnd_toStartOf="@+id/constraintMetal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/constraintClothes">
 
         <TextView
             android:id="@+id/total_glass"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="@string/todo"
+            android:text="@string/default_value"
             android:textAlignment="center"
             android:textColor="@color/neon_green"
             android:textSize="25sp"
@@ -240,23 +231,23 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout5"
+        android:id="@+id/constraintMetal"
         android:layout_width="163dp"
         android:layout_height="wrap_content"
         android:background="@drawable/info_bg"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintBottom_toTopOf="@+id/constraintPlastic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+        app:layout_constraintStart_toEndOf="@+id/constraintGlass"
+        app:layout_constraintTop_toBottomOf="@+id/constraintEwaste">
 
         <TextView
             android:id="@+id/total_metal"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="@string/todo"
+            android:text="@string/default_value"
             android:textAlignment="center"
             android:textColor="@color/neon_green"
             android:textSize="25sp"
@@ -280,7 +271,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout6"
+        android:id="@+id/constraintPaper"
         android:layout_width="163dp"
         android:layout_height="wrap_content"
         android:background="@drawable/info_bg"
@@ -288,15 +279,15 @@
         android:orientation="vertical"
         android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout7"
+        app:layout_constraintEnd_toStartOf="@+id/constraintPlastic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+        app:layout_constraintTop_toBottomOf="@+id/constraintGlass">
 
         <TextView
             android:id="@+id/total_paper"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="@string/todo"
+            android:text="@string/default_value"
             android:textAlignment="center"
             android:textColor="@color/neon_green"
             android:textSize="25sp"
@@ -320,7 +311,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout7"
+        android:id="@+id/constraintPlastic"
         android:layout_width="163dp"
         android:layout_height="wrap_content"
         android:background="@drawable/info_bg"
@@ -329,19 +320,20 @@
         android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout6"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+        app:layout_constraintStart_toEndOf="@+id/constraintPaper"
+        app:layout_constraintTop_toBottomOf="@+id/constraintMetal">
 
         <TextView
             android:id="@+id/total_plastic"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="@string/todo"
+            android:text="@string/default_value"
             android:textAlignment="center"
             android:textColor="@color/neon_green"
             android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/plastic"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.511"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

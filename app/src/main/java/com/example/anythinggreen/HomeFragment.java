@@ -37,7 +37,7 @@ import com.example.anythinggreen.ml.Model;
 
 public class HomeFragment extends Fragment {
 
-    TextView result, accuracy;
+    TextView classified,result, accuracy;
     ImageView imageToClassify;
     Button picture, gallery;
     int imageSize = 224;
@@ -50,6 +50,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        classified = view.findViewById(R.id.classified);
         result = view.findViewById(R.id.result);
         accuracy = view.findViewById(R.id.accuracy);
         imageToClassify = view.findViewById(R.id.imageToClassify);
@@ -87,6 +88,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         // Observes changes in MutableLiveData<String> classification
         viewModel.getClassification().observe(getViewLifecycleOwner(), value -> {
+            classified.setText(getString(R.string.classified_as));
             // Set text to TextView result using value of MutableLiveData<String> classification
             result.setText(value);
         });
@@ -147,7 +149,7 @@ public class HomeFragment extends Fragment {
 
             }
             else {
-                result.setText(R.string.res_home);
+                viewModel.setClassification(getString(R.string.res_home));
                 accuracy.setText("");
             }
 

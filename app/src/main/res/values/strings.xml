@@ -28,7 +28,7 @@
     <string name="share_this_app">Share This App</string>
     <string name="you_have_recycled_a_total_of">You have recycled a total of:</string>
     <string name="of_trash">of trash</string>
-    <string name="composed_of">composed of:</string>
+    <string name="composed_of">composed of : </string>
     <string name="of_metal">of metal</string>
     <string name="of_plastics">of plastics</string>
     <string name="of_clothes">of clothes</string>
@@ -36,4 +36,6 @@
     <string name="of_glass">of glass</string>
     <string name="of_paper">of paper</string>
     <string name="res_home">Not Recyclable</string>
+    <string name="default_value">0</string>
+    <string name="funfact">Did you know ?</string>
 </resources>
