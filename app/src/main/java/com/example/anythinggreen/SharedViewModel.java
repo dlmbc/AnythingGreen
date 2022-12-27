@@ -12,6 +12,7 @@ public class SharedViewModel extends ViewModel {
 
     // Create a MutableLiveData<String> classification to be observe in fragments
     private MutableLiveData<String> classification = new MutableLiveData<>();
+    private MutableLiveData<Integer> counter = new MutableLiveData<>();
 
     // Method to set Classification on ViewModel SharedViewModel to be used after classifying image
     public void setClassification(String value){
@@ -22,6 +23,9 @@ public class SharedViewModel extends ViewModel {
     public LiveData<String> getClassification(){
         return classification;
     }
+
+    // Retrieves counter value from ViewModel SharedViewModel
+    public MutableLiveData<Integer> getCounter() {return counter;}
 
     // Create a MutableLiveData<Bitmap> imageClassified to be observe in fragments
     private MutableLiveData<Bitmap> imageClassified = new MutableLiveData<>();
@@ -35,4 +39,5 @@ public class SharedViewModel extends ViewModel {
     public LiveData<Bitmap> getImageClassified() {
         return imageClassified;
     }
+
 }

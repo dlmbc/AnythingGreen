@@ -37,20 +37,25 @@ import com.example.anythinggreen.ml.Model;
 
 public class HomeFragment extends Fragment {
 
-    TextView result, accuracy;
+    TextView result, accuracy, textView3;
     ImageView imageToClassify;
     Button picture, gallery;
     int imageSize = 224;
     SharedViewModel viewModel;
+    private int counter;
+
 
 
     @Override
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         result = view.findViewById(R.id.result);
+        textView3 = view.findViewById(R.id.textView3);
+
         accuracy = view.findViewById(R.id.accuracy);
         imageToClassify = view.findViewById(R.id.imageToClassify);
         picture = view.findViewById(R.id.picture);
@@ -84,11 +89,16 @@ public class HomeFragment extends Fragment {
     // Use the onViewCreated method to initialize the TextView and observe the value of the TextView as it is ran after view is created
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
         super.onViewCreated(view, savedInstanceState);
         // Observes changes in MutableLiveData<String> classification
         viewModel.getClassification().observe(getViewLifecycleOwner(), value -> {
             // Set text to TextView result using value of MutableLiveData<String> classification
             result.setText(value);
+        });
+        viewModel.getCounter().observe(getViewLifecycleOwner(), value -> {
+            // Set text to TextView result using value of MutableLiveData<String> counter
+            result.setText(counter);
         });
     }
 
@@ -122,6 +132,7 @@ public class HomeFragment extends Fragment {
             Model.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
+
             float[] confidences = outputFeature0.getFloatArray();
             // find the index of the class with the biggest confidence.
             int maxPos = 0;
@@ -138,19 +149,23 @@ public class HomeFragment extends Fragment {
                 // Sets the value of MutableLiveData<String> Classification
                 viewModel.setClassification(classes[maxPos]);
                 viewModel.setImageClassified(image);
-
+                counter++;
+                PrefConfig.saveTotalInPref(getActivity().getApplicationContext(), counter);
                 StringBuilder s = new StringBuilder();
                 for(int i = 0; i < classes.length; i++){
                     s.append(String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100));
                 }
                 accuracy.setText(s.toString());
 
+
             }
             else {
                 result.setText(R.string.res_home);
                 accuracy.setText("");
-            }
 
+            }
+            counter = PrefConfig.loadTotalFromPref(getActivity().getApplicationContext());
+            textView3.setText(String.valueOf(counter));
             // Releases model resources if no longer used.
             model.close();
         } catch (IOException e) {
