@@ -19,7 +19,7 @@
             android:id="@+id/material_img"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="42dp"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="12dp"
             android:background="@color/tertiary"
@@ -162,7 +162,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp">
+                android:layout_height="0dp"
+                android:padding="10dp" >
 
                 <TextView
                     android:id="@+id/textViewHow"
@@ -183,6 +184,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
                     android:textSize="16sp"
+                    android:justificationMode="inter_word"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -227,7 +229,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:padding="10dp" >
 
                 <TextView
                     android:id="@+id/funfact"
@@ -249,6 +252,7 @@
                     android:padding="10dp"
                     android:textColor="@color/white"
                     android:textSize="16sp"
+                    android:justificationMode="inter_word"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

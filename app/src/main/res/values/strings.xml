@@ -4,11 +4,7 @@
     <string name="information">Information</string>
     <string name="rewards">Rewards</string>
     <string name="settings">Settings</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_home_fragment">Hello home fragment</string>
-    <string name="hello_info_fragment">hello_info_fragment</string>
-    <string name="hello_rewards_fragment">hello_rewards_fragment</string>
-    <string name="hello_settings_fragment">hello_settings_fragment</string>
+    <string name="about_us">About Us</string>
     <string name="anythinggreen">AnythingGreen</string>
     <string name="todo">TODO</string>
     <string name="night_mode">Night Mode</string>
@@ -20,12 +16,6 @@
     <string name="years_to_decompose">Years to decompose</string>
     <string name="made_out_of">Made out of</string>
     <string name="how_to_recycle">How to recycle?</string>
-    <string name="language">Language</string>
-    <string name="about_us">About Us</string>
-    <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="rate_this_app">Rate This App</string>
-    <string name="share_this_app">Share This App</string>
     <string name="you_have_recycled_a_total_of">You have recycled a total of:</string>
     <string name="of_trash">of trash</string>
     <string name="composed_of">composed of : </string>
@@ -38,4 +28,5 @@
     <string name="res_home">Not Recyclable</string>
     <string name="default_value">0</string>
     <string name="funfact">Did you know ?</string>
+    <string name="developers">Developers</string>
 </resources>
