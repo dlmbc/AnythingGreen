@@ -103,7 +103,7 @@
             style="@style/Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:text="@string/composed_of"
             android:textAlignment="center"
             android:textSize="24sp"
@@ -130,7 +130,7 @@
 
         <TextView
             android:id="@+id/total_clothes"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="@string/default_value"
             android:textAlignment="center"
@@ -160,7 +160,8 @@
         android:layout_width="163dp"
         android:layout_height="wrap_content"
         android:background="@drawable/info_bg"
-        android:gravity="center"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
         android:padding="20dp"
         app:layout_constraintBottom_toTopOf="@+id/constraintMetal"
         app:layout_constraintEnd_toEndOf="parent"
