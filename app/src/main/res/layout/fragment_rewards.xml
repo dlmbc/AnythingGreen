@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/Screen"
+    android:padding="16dp"
     tools:context=".RewardsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,11 +22,12 @@
             style="@style/Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="15dp"
             android:gravity="center"
+            android:paddingTop="15dp"
             android:text="@string/rewards"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +41,6 @@
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginTop="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,12 +50,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintTotalTrash"
         android:layout_width="163dp"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/info_bg"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:padding="20dp"
-        android:layout_marginTop="15dp"
         app:layout_constraintBottom_toTopOf="@+id/constraintComposition"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -118,7 +120,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintClothes"
         android:layout_width="163dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:background="@drawable/info_bg"
         android:gravity="center_vertical"
         android:orientation="vertical"
@@ -130,8 +132,8 @@
 
         <TextView
             android:id="@+id/total_clothes"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:text="@string/default_value"
             android:textAlignment="center"
             android:textColor="@color/neon_green"
@@ -143,8 +145,8 @@
 
         <TextView
             android:id="@+id/clothes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:text="@string/of_clothes"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -158,7 +160,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintEwaste"
         android:layout_width="163dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:background="@drawable/info_bg"
         android:gravity="center_vertical"
         android:orientation="vertical"
@@ -170,8 +172,8 @@
 
         <TextView
             android:id="@+id/total_ewaste"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:text="@string/default_value"
             android:textAlignment="center"
             android:textColor="@color/neon_green"
@@ -183,8 +185,8 @@
 
         <TextView
             android:id="@+id/ewaste"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:text="@string/of_e_waste"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -198,7 +200,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintGlass"
         android:layout_width="163dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:background="@drawable/info_bg"
         android:gravity="center_vertical"
         android:orientation="vertical"
@@ -210,8 +212,8 @@
 
         <TextView
             android:id="@+id/total_glass"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:text="@string/default_value"
             android:textAlignment="center"
             android:textColor="@color/neon_green"
@@ -223,8 +225,8 @@
 
         <TextView
             android:id="@+id/glass"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:text="@string/of_glass"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -238,7 +240,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintMetal"
         android:layout_width="163dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:background="@drawable/info_bg"
         android:gravity="center_vertical"
         android:orientation="vertical"
@@ -250,8 +252,8 @@
 
         <TextView
             android:id="@+id/total_metal"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:text="@string/default_value"
             android:textAlignment="center"
             android:textColor="@color/neon_green"
@@ -263,8 +265,8 @@
 
         <TextView
             android:id="@+id/metal"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:text="@string/of_metal"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -278,7 +280,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintPaper"
         android:layout_width="163dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:background="@drawable/info_bg"
         android:gravity="center_vertical"
         android:orientation="vertical"
@@ -290,8 +292,8 @@
 
         <TextView
             android:id="@+id/total_paper"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:text="@string/default_value"
             android:textAlignment="center"
             android:textColor="@color/neon_green"
@@ -303,8 +305,8 @@
 
         <TextView
             android:id="@+id/paper"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:text="@string/of_paper"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -318,7 +320,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintPlastic"
         android:layout_width="163dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:background="@drawable/info_bg"
         android:gravity="center_vertical"
         android:orientation="vertical"
@@ -330,8 +332,8 @@
 
         <TextView
             android:id="@+id/total_plastic"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:text="@string/default_value"
             android:textAlignment="center"
             android:textColor="@color/neon_green"
@@ -344,8 +346,8 @@
 
         <TextView
             android:id="@+id/plastic"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:text="@string/of_plastics"
             android:textAlignment="center"
             android:textColor="@color/white"
