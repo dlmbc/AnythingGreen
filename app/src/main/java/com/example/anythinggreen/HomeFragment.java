@@ -150,6 +150,7 @@ public class HomeFragment extends Fragment {
             }
             else {
                 viewModel.setClassification(getString(R.string.res_home));
+                viewModel.setImageClassified(image);
                 accuracy.setText("");
             }
 
