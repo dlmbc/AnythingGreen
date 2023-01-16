@@ -27,11 +27,13 @@ import android.widget.TextView;
 
 
 import org.tensorflow.lite.DataType;
+import org.tensorflow.lite.support.label.Category;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.List;
 
 import com.example.anythinggreen.ml.Model;
 
@@ -122,9 +124,9 @@ public class HomeFragment extends Fragment {
 
             // Runs model inference and gets result.
             Model.Outputs outputs = model.process(inputFeature0);
-            TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
+            List<Category> probability = outputs.getProbabilityAsCategoryList();
 
-            float[] confidences = outputFeature0.getFloatArray();
+            float[] confidences = inputFeature0.getFloatArray();
             // find the index of the class with the biggest confidence.
             int maxPos = 0;
             float maxConfidence = 0;
