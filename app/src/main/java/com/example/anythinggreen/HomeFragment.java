@@ -136,7 +136,7 @@ public class HomeFragment extends Fragment {
                     maxPos = i;
                 }
             }
-            String[] classes = {"E-waste", "Glass", "Metal", "Paper", "Plastic", "Clothes"};
+            String[] classes = {"Clothes", "E-waste", "Glass", "Metal", "Paper", "Plastic"};
 
             if(maxConfidence >= 0.70) {
                 // Sets the value of MutableLiveData<String> Classification
