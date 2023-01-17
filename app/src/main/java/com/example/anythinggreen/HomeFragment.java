@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
     TextView classified,result, accuracy;
     ImageView imageToClassify;
     Button picture, gallery;
-    int imageSize = 224;
+    int imageSize = 64;
     SharedViewModel viewModel;
 
 
@@ -101,7 +101,7 @@ public class HomeFragment extends Fragment {
             Model model = Model.newInstance(getActivity().getApplicationContext());
 
             // Creates inputs for reference.
-            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
+            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 64, 64, 3}, DataType.FLOAT32);
             ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3);
             byteBuffer.order(ByteOrder.nativeOrder());
 
