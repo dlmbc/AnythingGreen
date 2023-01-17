@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
     TextView classified,result, accuracy;
     ImageView imageToClassify;
     Button picture, gallery;
-    int imageSize = 112;
+    int imageSize = 224;
     SharedViewModel viewModel;
 
 
@@ -101,11 +101,11 @@ public class HomeFragment extends Fragment {
             Model model = Model.newInstance(getActivity().getApplicationContext());
 
             // Creates inputs for reference.
-            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 112, 112, 3}, DataType.FLOAT32);
+            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
             ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3);
             byteBuffer.order(ByteOrder.nativeOrder());
 
-            // get 1D array of 112 * 112 pixels in image
+            // get 1D array of 224 * 224 pixels in image
             int [] intValues = new int[imageSize * imageSize];
             image.getPixels(intValues, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
 
@@ -124,9 +124,9 @@ public class HomeFragment extends Fragment {
 
             // Runs model inference and gets result.
             Model.Outputs outputs = model.process(inputFeature0);
-            List<Category> probability = outputs.getProbabilityAsCategoryList();
+            TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
-            float[] confidences = inputFeature0.getFloatArray();
+            float[] confidences = outputFeature0.getFloatArray();
             // find the index of the class with the biggest confidence.
             int maxPos = 0;
             float maxConfidence = 0;
