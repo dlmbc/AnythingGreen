@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class SettingsFragment extends Fragment {
 
-    TextView about_us, developers;
+    TextView user_guide, about_us, developers;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -23,6 +23,7 @@ public class SettingsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
+        user_guide = view.findViewById(R.id.user_guide);
         about_us = view.findViewById(R.id.about_us);
         developers = view.findViewById(R.id.developers);
 
@@ -34,6 +35,15 @@ public class SettingsFragment extends Fragment {
 
         super.onViewCreated(view, savedInstanceState);
 
+        user_guide.setText("1.) Download the app from google drive\n" +
+                "2.) Navigate to Settings. Search for and select \"Install unknown apps\". Then, tap \"Install unknown apps\" again.\n" +
+                "3.) Tap the source that you want to allow app installations from, such as Chrome or My Files. Then, tap the switch next to \"Allow from this source\" to give permission.\n" +
+                "4.) Open the downloaded APK file to install \n" +
+                "5.) Done! \n" +
+                "\n" +
+                "After opening you will see a \"Take Picture\" button and \"Launch Gallery\" button, you can choose take picture to use your phone camera and scan the trash that you want to recycle or upload a photo from the gallery. (If using the app for the first time, you might get a prompt asking you to allow the app to use your camera, yes click \"Allow while using the app\"). Below those options are other pages such as the Information where the app will show some info about the material you captured and how to recycle them.  The third page is the counter / rewards page. You will see the number of trash you have recycled in total and also individually by type. The settings page is some info about the developers.\n" +
+                "\n" +
+                "Please note that the application is currently in beta, and inaccuracies to some degree are expected. Nevertheless, we do hope that it will be useful to your recycling journey. Don't hesitate to ask us anything about the installation or the app function. Thank you!");
         about_us.setText("We are 4th-year computer engineering students from the Polytechnic University of the Philippines. This application is made in compliance with our project in Computer Engineering Practice and Design 1.");
         developers.setText("Chua, Stephen John P." + "\n" + "Delambaca, Erica O.");
     }

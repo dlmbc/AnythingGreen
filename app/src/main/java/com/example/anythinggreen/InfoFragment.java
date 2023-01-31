@@ -164,9 +164,11 @@ public class InfoFragment extends Fragment {
             default:
                 years.setText("Unknown");
                 made_of.setText("Unknown");
-                recycle_ways.setText("The scanned material is not recyclable. It can either be classified as biodegradable or non-biodegradable waste depending on its composition.");
-                mat_desc.setText("• Biodegradable waste refers to materials that can be broken down, decomposed and returned to the environment by natural processes. Examples include food scraps, yard waste, and paper products." + "\n" + "\n" +
-                            "• Non-biodegradable waste refers to materials that do not break down and cannot be returned to the environment by natural processes. Examples include plastic, metal, and glass.");
+                recycle_ways.setText("Unknown");
+                        //The scanned material is not recyclable. It can either be classified as biodegradable or non-biodegradable waste depending on its composition.
+                mat_desc.setText("Unknown");
+                        //• Biodegradable waste refers to materials that can be broken down, decomposed and returned to the environment by natural processes. Examples include food scraps, yard waste, and paper products.
+                        //• Non-biodegradable waste refers to materials that do not break down and cannot be returned to the environment by natural processes. Examples include plastic, metal, and glass.
                 break;
         }
     }

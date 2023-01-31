@@ -138,23 +138,30 @@ public class HomeFragment extends Fragment {
             }
             String[] classes = {"Clothes", "E-waste", "Glass", "Metal", "Paper", "Plastic"};
 
-            if(maxConfidence >= 0.70) {
-                // Sets the value of MutableLiveData<String> Classification
-                viewModel.setClassification(classes[maxPos]);
-                viewModel.setImageClassified(image);
+            if(maxConfidence >= 0.30) {
+                if (maxConfidence >= 0.70) {
+                    // Sets the value of MutableLiveData<String> Classification
+                    viewModel.setClassification(classes[maxPos]);
+                    viewModel.setImageClassified(image);
 
-                StringBuilder s = new StringBuilder();
-                for(int i = 0; i < classes.length; i++){
-                    s.append(String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100));
+                    StringBuilder s = new StringBuilder();
+                    for (int i = 0; i < classes.length; i++) {
+                        s.append(String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100));
+                    }
+                    accuracy.setText(s.toString());
                 }
-                accuracy.setText(s.toString());
 
+                else {
+                    viewModel.setClassification(getString(R.string.error));
+                }
             }
+
             else {
                 viewModel.setClassification(getString(R.string.res_home));
-                viewModel.setImageClassified(image);
-                accuracy.setText("");
             }
+
+            viewModel.setImageClassified(image);
+            accuracy.setText("");
 
             // Releases model resources if no longer used.
             model.close();

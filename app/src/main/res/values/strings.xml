@@ -26,7 +26,9 @@
     <string name="of_glass">of glass</string>
     <string name="of_paper">of paper</string>
     <string name="res_home">Not Recyclable</string>
+    <string name="error">Image Unclear. Please try again!</string>
     <string name="default_value">0</string>
     <string name="funfact">Did you know ?</string>
     <string name="developers">Developers</string>
+    <string name="how_to_install">HOW TO INSTALL :</string>
 </resources>
