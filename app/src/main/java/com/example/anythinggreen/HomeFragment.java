@@ -148,7 +148,7 @@ public class HomeFragment extends Fragment {
                     for (int i = 0; i < classes.length; i++) {
                         s.append(String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100));
                     }
-                    accuracy.setText(s.toString());
+                    accuracy.setText(s);
                 }
 
                 else {
@@ -161,7 +161,7 @@ public class HomeFragment extends Fragment {
             }
 
             viewModel.setImageClassified(image);
-            accuracy.setText("");
+            //accuracy.setText("");
 
             // Releases model resources if no longer used.
             model.close();
