@@ -41,7 +41,6 @@
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginTop="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,13 +51,11 @@
         android:id="@+id/constraintTotalTrash"
         android:layout_width="163dp"
         android:layout_height="120dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/info_bg"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintComposition"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintRewardTitle">
@@ -94,278 +91,23 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintComposition"
+        android:id="@+id/constraintPieChart"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintTotalTrash">
 
-        <TextView
-            android:id="@+id/textView2"
-            style="@style/Text"
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieChart"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/composed_of"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintClothes"
-        android:layout_width="163dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/info_bg"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintGlass"
-        app:layout_constraintEnd_toStartOf="@+id/constraintEwaste"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintComposition">
-
-        <TextView
-            android:id="@+id/total_clothes"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/default_value"
-            android:textAlignment="center"
-            android:textColor="@color/neon_green"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/clothes"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/clothes"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/of_clothes"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/total_clothes" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintEwaste"
-        android:layout_width="163dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/info_bg"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintMetal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/constraintClothes"
-        app:layout_constraintTop_toBottomOf="@+id/constraintComposition">
-
-        <TextView
-            android:id="@+id/total_ewaste"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/default_value"
-            android:textAlignment="center"
-            android:textColor="@color/neon_green"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/ewaste"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/ewaste"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/of_e_waste"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/total_ewaste" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintGlass"
-        android:layout_width="163dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/info_bg"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintPaper"
-        app:layout_constraintEnd_toStartOf="@+id/constraintMetal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintClothes">
-
-        <TextView
-            android:id="@+id/total_glass"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/default_value"
-            android:textAlignment="center"
-            android:textColor="@color/neon_green"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/glass"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/glass"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/of_glass"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/total_glass" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintMetal"
-        android:layout_width="163dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/info_bg"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintPlastic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/constraintGlass"
-        app:layout_constraintTop_toBottomOf="@+id/constraintEwaste">
-
-        <TextView
-            android:id="@+id/total_metal"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/default_value"
-            android:textAlignment="center"
-            android:textColor="@color/neon_green"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/metal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/metal"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/of_metal"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/total_metal" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintPaper"
-        android:layout_width="163dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/info_bg"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/constraintPlastic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintGlass">
-
-        <TextView
-            android:id="@+id/total_paper"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/default_value"
-            android:textAlignment="center"
-            android:textColor="@color/neon_green"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/paper"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/paper"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/of_paper"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/total_paper" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintPlastic"
-        android:layout_width="163dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/info_bg"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/constraintPaper"
-        app:layout_constraintTop_toBottomOf="@+id/constraintMetal">
-
-        <TextView
-            android:id="@+id/total_plastic"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/default_value"
-            android:textAlignment="center"
-            android:textColor="@color/neon_green"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/plastic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.511"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/plastic"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/of_plastics"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/total_plastic" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
