@@ -27,13 +27,11 @@ import android.widget.TextView;
 
 
 import org.tensorflow.lite.DataType;
-import org.tensorflow.lite.support.label.Category;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.util.List;
 
 import com.example.anythinggreen.ml.ModelTeachableMachine;
 
@@ -148,7 +146,7 @@ public class HomeFragment extends Fragment {
                     for (int i = 0; i < classes.length; i++) {
                         s.append(String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100));
                     }
-                    accuracy.setText(s);
+                    //accuracy.setText(s);
                 }
 
                 else {
@@ -161,7 +159,7 @@ public class HomeFragment extends Fragment {
             }
 
             viewModel.setImageClassified(image);
-            //accuracy.setText("");
+            accuracy.setText("");
 
             // Releases model resources if no longer used.
             model.close();
