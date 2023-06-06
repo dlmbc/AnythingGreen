@@ -21,13 +21,11 @@ import java.util.Locale;
 import java.util.Objects;
 
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 public class RewardsFragment extends Fragment {
 
@@ -94,8 +92,8 @@ public class RewardsFragment extends Fragment {
     private void showPieChart() {
         List<PieEntry> pieEntries = new ArrayList<>();
         // Add only non-zero entries to the pieEntries list
-        if (plastic_counter != 0f) {
-            pieEntries.add(new PieEntry(plastic_counter, "Plastic"));
+        if (clothes_counter != 0f) {
+            pieEntries.add(new PieEntry(clothes_counter, "Clothes"));
         }
         if (ewaste_counter != 0f) {
             pieEntries.add(new PieEntry(ewaste_counter, "E-waste"));
@@ -109,12 +107,29 @@ public class RewardsFragment extends Fragment {
         if (paper_counter != 0f) {
             pieEntries.add(new PieEntry(paper_counter, "Paper"));
         }
-        if (clothes_counter != 0f) {
-            pieEntries.add(new PieEntry(clothes_counter, "Clothes"));
+        if (plastic_counter != 0f) {
+            pieEntries.add(new PieEntry(plastic_counter, "Plastic"));
         }
+
         // Create the dataset for the pie chart
         PieDataSet dataSet = new PieDataSet(pieEntries, "");
-        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        dataSet.setSliceSpace(2);
+
+        // Modify center text
+        pieChart.setCenterText("CONGRATS ON MAKING THE WORLD A BETTER PLACE");
+        pieChart.setCenterTextSize(20f);
+        pieChart.setCenterTextColor(getResources().getColor(R.color.neon_green));
+
+        //Get colors from xml resource
+        int[] colors = new int[] {getResources().getColor(R.color.one),
+                getResources().getColor(R.color.two),
+                getResources().getColor(R.color.three),
+                getResources().getColor(R.color.four),
+                getResources().getColor(R.color.five),
+                getResources().getColor(R.color.six)};
+
+        // Set the custom colors for the dataset
+        dataSet.setColors(colors);
         dataSet.setValueTextSize(20f);
         dataSet.setValueFormatter(new ValueFormatter() {
             @SuppressLint("DefaultLocale")
@@ -123,14 +138,29 @@ public class RewardsFragment extends Fragment {
                 return String.format("%.0f", value);
             }
         });
-        // Hiding description and legend
+
+        // Description and legend
         pieChart.getDescription().setEnabled(false);
-        pieChart.getLegend().setEnabled(false);
-        //Adjusting Pie chart radius and transparent circle
-        pieChart.setHoleRadius(25f);
-        pieChart.setTransparentCircleRadius(40f);
+        pieChart.setDrawEntryLabels(false);
+
+        Legend legend = pieChart.getLegend();
+        legend.setEnabled(true);
+        legend.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
+        legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
+        legend.setOrientation(Legend.LegendOrientation.HORIZONTAL);
+        legend.setTextColor(getResources().getColor(R.color.primary));
+        legend.setTextSize(12);
+
+        // Adjusting Pie chart radius and transparent circle
+        pieChart.setHoleColor(Color.TRANSPARENT);
+        pieChart.setTransparentCircleRadius(0f);
+
+        // Stop dragging the chart
+        pieChart.setRotationEnabled(false);
+
         // Create the pie data
         PieData pieData = new PieData(dataSet);
+
         // Set the data to the pie chart
         pieChart.setData(pieData);
         pieChart.invalidate();

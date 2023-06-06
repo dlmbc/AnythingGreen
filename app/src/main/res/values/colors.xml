@@ -13,4 +13,11 @@
     <color name="primary">#477B72</color>
     <color name="secondary">#C2C2C2</color>
     <color name="tertiary">#8C8D8C</color>
+
+    <color name="one">#8ED8B7</color>
+    <color name="two">#69B8F4</color>
+    <color name="three">#BECFF6</color>
+    <color name="four">#C899F4</color>
+    <color name="five">#FDE35A</color>
+    <color name="six">#6B8CEF</color>
 </resources>
