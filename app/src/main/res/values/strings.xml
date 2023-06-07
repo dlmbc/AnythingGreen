@@ -16,7 +16,7 @@
     <string name="years_to_decompose">Years to decompose</string>
     <string name="made_out_of">Made out of</string>
     <string name="how_to_recycle">How to recycle?</string>
-    <string name="you_have_recycled_a_total_of">You have recycled a total of:</string>
+    <string name="you_have_recycled">You have recycled:</string>
     <string name="of_trash">of trash</string>
     <string name="composed_of">composed of : </string>
     <string name="of_metal">of metal</string>

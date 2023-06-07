@@ -2,6 +2,8 @@ package com.example.anythinggreen;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.fonts.Font;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +31,7 @@ import com.github.mikephil.charting.formatter.ValueFormatter;
 
 public class RewardsFragment extends Fragment {
 
-    TextView total_trash;
+    TextView total_trash, places;
     Integer clothes_counter, trash_counter, ewaste_counter, glass_counter,
             metal_counter, paper_counter, plastic_counter;
     String material;
@@ -59,6 +61,7 @@ public class RewardsFragment extends Fragment {
 
         total_trash = view.findViewById(R.id.total_trash);
         pieChart = view.findViewById(R.id.pieChart);
+        places = view.findViewById(R.id.places);
 
         showPieChart();
 
@@ -87,9 +90,23 @@ public class RewardsFragment extends Fragment {
             }
             updateRewards();
         });
+
+        places.setText("• SMCares’ Trash to Cash Recycling Market\n" + "\n" +
+                "     - located at SM City San Jose Del Monte (Open Parking near Canopy 1 of Entrance 1)\n" + "\n" +
+                "     - located at SM City Taytay (Transport Terminal Area Building A)\n" + "\n" +
+                "     - opens every 1st Friday and Saturday of the Month, 10AM – 2PM\n" + "\n" +
+                "     - accepts plastic and P.E.T bottles, tin and aluminum cans, books, newspaper, scratch paper, metal cookware, and kitchen items\n" + "\n" + "\n" + "\n" +
+                "• SMCares’ E-waste Collection Program\n" + "\n" +
+                "     - located at SM City San Jose Del Monte (Cyberzone area near Guanzon)\n" + "\n" +
+                "     - located at SM City Taytay (Bldg B, 2F, in front of Cyberzone, besude adbox)\n" + "\n" +
+                "     - open everyday during mall hours\n" + "\n" +
+                "     - accepts old and broken mobile phones, mobile phone charges, power cords, commercial batteries, earphones/earbuds, calculators, printer ink and toner cartridges, small gadgets, and computer wiring\n");
     }
 
     private void showPieChart() {
+        // Get the total trash count
+        int totalTrash = PrefConfig.loadTotalTrashFromPref(getActivity().getApplicationContext());
+
         List<PieEntry> pieEntries = new ArrayList<>();
         // Add only non-zero entries to the pieEntries list
         if (clothes_counter != 0f) {
@@ -116,9 +133,10 @@ public class RewardsFragment extends Fragment {
         dataSet.setSliceSpace(2);
 
         // Modify center text
-        pieChart.setCenterText("CONGRATS ON MAKING THE WORLD A BETTER PLACE");
-        pieChart.setCenterTextSize(20f);
+        pieChart.setCenterText(String.valueOf(totalTrash) + " trash");
+        pieChart.setCenterTextSize(22f);
         pieChart.setCenterTextColor(getResources().getColor(R.color.neon_green));
+        pieChart.setCenterTextTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
 
         //Get colors from xml resource
         int[] colors = new int[] {getResources().getColor(R.color.one),
@@ -131,6 +149,7 @@ public class RewardsFragment extends Fragment {
         // Set the custom colors for the dataset
         dataSet.setColors(colors);
         dataSet.setValueTextSize(20f);
+        dataSet.setValueTypeface(Typeface.DEFAULT_BOLD);
         dataSet.setValueFormatter(new ValueFormatter() {
             @SuppressLint("DefaultLocale")
             @Override
@@ -141,15 +160,11 @@ public class RewardsFragment extends Fragment {
 
         // Description and legend
         pieChart.getDescription().setEnabled(false);
-        pieChart.setDrawEntryLabels(false);
+        pieChart.setDrawEntryLabels(true);
+        pieChart.setEntryLabelColor(Color.BLACK);
 
         Legend legend = pieChart.getLegend();
-        legend.setEnabled(true);
-        legend.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
-        legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);
-        legend.setOrientation(Legend.LegendOrientation.HORIZONTAL);
-        legend.setTextColor(getResources().getColor(R.color.primary));
-        legend.setTextSize(12);
+        legend.setEnabled(false);
 
         // Adjusting Pie chart radius and transparent circle
         pieChart.setHoleColor(Color.TRANSPARENT);
