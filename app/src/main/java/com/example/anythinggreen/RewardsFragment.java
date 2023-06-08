@@ -91,16 +91,26 @@ public class RewardsFragment extends Fragment {
             updateRewards();
         });
 
-        places.setText("• SMCares’ Trash to Cash Recycling Market\n" + "\n" +
-                "     - located at SM City San Jose Del Monte (Open Parking near Canopy 1 of Entrance 1)\n" + "\n" +
-                "     - located at SM City Taytay (Transport Terminal Area Building A)\n" + "\n" +
-                "     - opens every 1st Friday and Saturday of the Month, 10AM – 2PM\n" + "\n" +
-                "     - accepts plastic and P.E.T bottles, tin and aluminum cans, books, newspaper, scratch paper, metal cookware, and kitchen items\n" + "\n" + "\n" + "\n" +
-                "• SMCares’ E-waste Collection Program\n" + "\n" +
-                "     - located at SM City San Jose Del Monte (Cyberzone area near Guanzon)\n" + "\n" +
-                "     - located at SM City Taytay (Bldg B, 2F, in front of Cyberzone, besude adbox)\n" + "\n" +
-                "     - open everyday during mall hours\n" + "\n" +
-                "     - accepts old and broken mobile phones, mobile phone charges, power cords, commercial batteries, earphones/earbuds, calculators, printer ink and toner cartridges, small gadgets, and computer wiring\n");
+        places.setText("SMCARES’ TRASH TO CASH RECYCLING MARKET\n" + "\n" +
+                "- located at SM City San Jose Del Monte (Open Parking near Canopy 1 of Entrance 1)\n" + "\n" +
+                "- located at SM City Taytay (Transport Terminal Area Building A)\n" + "\n" +
+                "- opens every 1st Friday and Saturday of the Month, 10AM – 2PM\n" + "\n" +
+                "- accepts plastic and P.E.T bottles, tin and aluminum cans, books, newspaper, scratch paper, metal cookware, and kitchen items\n" + "\n" + "\n" + "\n" +
+                "SMCARES’ E-WASTE COLLECTION PROGRAM\n" + "\n" +
+                "- located at SM City San Jose Del Monte (Cyberzone area near Guanzon)\n" + "\n" +
+                "- located at SM City Baliwag (2F, Cyberzone, near Vivo store)\n" + "\n" +
+                "- located at SM City Angono (2F, Cyberzone are under the escalator)\n" + "\n" +
+                "- located at SM City Taytay (Bldg B, 2F, in front of Cyberzone, beside adbox)\n" + "\n" +
+                "- open everyday during mall hours\n" + "\n" +
+                "- accepts old and broken mobile phones, mobile phone charges, power cords, commercial batteries, earphones/earbuds, calculators, printer ink and toner cartridges, small gadgets, and computer wiring\n" + "\n" + "\n" + "\n" +
+                "THE PLASTIC FLAMINGO\n" + "\n" +
+                "- located at Antipolo City – Decathlon\n" + "\n" +
+                "- you can donate your plastic waste here and they will recycle your waste into eco-products used for construction, design, furniture, and more\n" + "\n" +
+                "- accepts all types of plastic\n" + "\n" + "\n" + "\n" +
+                "SILENT BEADS\n" + "\n" +
+                "- located at Muzon, San Jose Del Monte (B23 L3 Zone 2, San Julian St. Melody Plains Subdivision, San Jose Del Monte, Bulacan)\n" + "\n" +
+                "- open every day, from 9AM – 6PM\n" + "\n" +
+                "- accepts paper donations");
     }
 
     private void showPieChart() {
