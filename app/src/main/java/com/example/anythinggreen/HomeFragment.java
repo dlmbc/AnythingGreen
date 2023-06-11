@@ -33,6 +33,8 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
+import com.example.anythinggreen.ml.ModelAUnquant;
+import com.example.anythinggreen.ml.ModelB;
 import com.example.anythinggreen.ml.ModelTeachableMachine;
 
 public class HomeFragment extends Fragment {
@@ -96,7 +98,7 @@ public class HomeFragment extends Fragment {
 
     public void classifyImage(Bitmap image){
         try {
-            ModelTeachableMachine model = ModelTeachableMachine.newInstance(getActivity().getApplicationContext());
+            ModelAUnquant model = ModelAUnquant.newInstance(getActivity().getApplicationContext());
 
             // Creates inputs for reference.
             TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
@@ -121,7 +123,7 @@ public class HomeFragment extends Fragment {
             inputFeature0.loadBuffer(byteBuffer);
 
             // Runs model inference and gets result.
-            ModelTeachableMachine.Outputs outputs = model.process(inputFeature0);
+            ModelAUnquant.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             float[] confidences = outputFeature0.getFloatArray();
