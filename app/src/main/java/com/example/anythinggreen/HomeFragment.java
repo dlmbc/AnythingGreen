@@ -35,6 +35,7 @@ import java.nio.ByteOrder;
 
 import com.example.anythinggreen.ml.ModelAUnquant;
 import com.example.anythinggreen.ml.ModelB;
+import com.example.anythinggreen.ml.ModelC;
 import com.example.anythinggreen.ml.ModelTeachableMachine;
 
 public class HomeFragment extends Fragment {
@@ -146,9 +147,9 @@ public class HomeFragment extends Fragment {
 
                     StringBuilder s = new StringBuilder();
                     for (int i = 0; i < classes.length; i++) {
-                        s.append(String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100));
+                        s.append(String.format("%s: %.1f%%   ", classes[i], confidences[i] * 100));
                     }
-                    //accuracy.setText(s);
+                    accuracy.setText(s);
                 }
 
                 else {
@@ -161,7 +162,7 @@ public class HomeFragment extends Fragment {
             }
 
             viewModel.setImageClassified(image);
-            accuracy.setText("");
+            //accuracy.setText("");
 
             // Releases model resources if no longer used.
             model.close();
