@@ -33,6 +33,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
+import com.example.anythinggreen.ml.Model;
 import com.example.anythinggreen.ml.ModelAUnquant;
 import com.example.anythinggreen.ml.ModelB;
 import com.example.anythinggreen.ml.ModelC;
@@ -99,7 +100,7 @@ public class HomeFragment extends Fragment {
 
     public void classifyImage(Bitmap image){
         try {
-            ModelAUnquant model = ModelAUnquant.newInstance(getActivity().getApplicationContext());
+            Model model = Model.newInstance(getActivity().getApplicationContext());
 
             // Creates inputs for reference.
             TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
@@ -115,16 +116,16 @@ public class HomeFragment extends Fragment {
             for(int i = 0; i < imageSize; i++){
                 for(int j = 0; j < imageSize; j++){
                     int val = intValues[pixel++]; // RGB
-                    byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 255.f));
-                    byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 255.f));
-                    byteBuffer.putFloat((val & 0xFF) * (1.f / 255.f));
+                    byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 1));
+                    byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 1));
+                    byteBuffer.putFloat((val & 0xFF) * (1.f / 1));
                 }
             }
 
             inputFeature0.loadBuffer(byteBuffer);
 
             // Runs model inference and gets result.
-            ModelAUnquant.Outputs outputs = model.process(inputFeature0);
+            Model.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             float[] confidences = outputFeature0.getFloatArray();
