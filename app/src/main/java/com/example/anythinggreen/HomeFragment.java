@@ -33,10 +33,23 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
-import com.example.anythinggreen.ml.Model;
-import com.example.anythinggreen.ml.ModelAUnquant;
-import com.example.anythinggreen.ml.ModelB;
-import com.example.anythinggreen.ml.ModelC;
+import com.example.anythinggreen.ml.Model12;
+import com.example.anythinggreen.ml.Model4;
+import com.example.anythinggreen.ml.Model5;
+import com.example.anythinggreen.ml.Model6;
+import com.example.anythinggreen.ml.Model7a;
+import com.example.anythinggreen.ml.ModelA;
+import com.example.anythinggreen.ml.ModelBalanced30k;
+import com.example.anythinggreen.ml.ModelBalanced30k64128256;
+import com.example.anythinggreen.ml.ModelBalanced30kDecentacc;
+import com.example.anythinggreen.ml.ModelBalanced30kLowacc;
+import com.example.anythinggreen.ml.ModelBalanced30kLowacc2;
+import com.example.anythinggreen.ml.ModelBalanced30kOverfit;
+import com.example.anythinggreen.ml.ModelBalanced30kOverfit2;
+import com.example.anythinggreen.ml.ModelBalanced30kOverfit3;
+import com.example.anythinggreen.ml.ModelBalanced30kSemilowacc;
+import com.example.anythinggreen.ml.ModelBalanced30kSemilowacc2;
+import com.example.anythinggreen.ml.ModelBalanced30kerica2;
 import com.example.anythinggreen.ml.ModelTeachableMachine;
 
 public class HomeFragment extends Fragment {
@@ -44,7 +57,7 @@ public class HomeFragment extends Fragment {
     TextView classified,result, accuracy;
     ImageView imageToClassify;
     Button picture, gallery;
-    int imageSize = 224;
+    int imageSize = 112;
     SharedViewModel viewModel;
 
 
@@ -100,14 +113,14 @@ public class HomeFragment extends Fragment {
 
     public void classifyImage(Bitmap image){
         try {
-            Model model = Model.newInstance(getActivity().getApplicationContext());
+            ModelBalanced30k64128256 model = ModelBalanced30k64128256.newInstance(getActivity().getApplicationContext());
 
             // Creates inputs for reference.
-            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
+            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 112, 112, 3}, DataType.FLOAT32);
             ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3);
             byteBuffer.order(ByteOrder.nativeOrder());
 
-            // get 1D array of 224 * 224 pixels in image
+            // get 1D array of 112 * 112 pixels in image
             int [] intValues = new int[imageSize * imageSize];
             image.getPixels(intValues, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
 
@@ -116,16 +129,16 @@ public class HomeFragment extends Fragment {
             for(int i = 0; i < imageSize; i++){
                 for(int j = 0; j < imageSize; j++){
                     int val = intValues[pixel++]; // RGB
-                    byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 1));
-                    byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 1));
-                    byteBuffer.putFloat((val & 0xFF) * (1.f / 1));
+                    byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 1.f));
+                    byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 1.f));
+                    byteBuffer.putFloat((val & 0xFF) * (1.f / 1.f));
                 }
             }
 
             inputFeature0.loadBuffer(byteBuffer);
 
             // Runs model inference and gets result.
-            Model.Outputs outputs = model.process(inputFeature0);
+            ModelBalanced30k64128256.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             float[] confidences = outputFeature0.getFloatArray();
@@ -148,18 +161,20 @@ public class HomeFragment extends Fragment {
 
                     StringBuilder s = new StringBuilder();
                     for (int i = 0; i < classes.length; i++) {
-                        s.append(String.format("%s: %.1f%%   ", classes[i], confidences[i] * 100));
+                        s.append(String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100));
                     }
                     accuracy.setText(s);
                 }
 
                 else {
                     viewModel.setClassification(getString(R.string.error));
+                    accuracy.setText("");
                 }
             }
 
             else {
                 viewModel.setClassification(getString(R.string.res_home));
+                accuracy.setText("");
             }
 
             viewModel.setImageClassified(image);
