@@ -33,7 +33,10 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
+import com.example.anythinggreen.ml.All256NoL2Dropout7;
+import com.example.anythinggreen.ml.M64128256256GlobalAveragePooling2D;
 import com.example.anythinggreen.ml.Model12;
+import com.example.anythinggreen.ml.Model2;
 import com.example.anythinggreen.ml.Model4;
 import com.example.anythinggreen.ml.Model5;
 import com.example.anythinggreen.ml.Model6;
@@ -41,6 +44,7 @@ import com.example.anythinggreen.ml.Model7a;
 import com.example.anythinggreen.ml.ModelA;
 import com.example.anythinggreen.ml.ModelBalanced30k;
 import com.example.anythinggreen.ml.ModelBalanced30k64128256;
+import com.example.anythinggreen.ml.ModelBalanced30k64128256nodropout;
 import com.example.anythinggreen.ml.ModelBalanced30kDecentacc;
 import com.example.anythinggreen.ml.ModelBalanced30kLowacc;
 import com.example.anythinggreen.ml.ModelBalanced30kLowacc2;
@@ -51,13 +55,14 @@ import com.example.anythinggreen.ml.ModelBalanced30kSemilowacc;
 import com.example.anythinggreen.ml.ModelBalanced30kSemilowacc2;
 import com.example.anythinggreen.ml.ModelBalanced30kerica2;
 import com.example.anythinggreen.ml.ModelTeachableMachine;
+import com.example.anythinggreen.ml.ModelUnquant;
 
 public class HomeFragment extends Fragment {
 
     TextView classified,result, accuracy;
     ImageView imageToClassify;
     Button picture, gallery;
-    int imageSize = 112;
+    int imageSize = 224;
     SharedViewModel viewModel;
 
 
@@ -113,14 +118,14 @@ public class HomeFragment extends Fragment {
 
     public void classifyImage(Bitmap image){
         try {
-            ModelBalanced30k64128256 model = ModelBalanced30k64128256.newInstance(getActivity().getApplicationContext());
+            ModelUnquant model = ModelUnquant.newInstance(getActivity().getApplicationContext());
 
             // Creates inputs for reference.
-            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 112, 112, 3}, DataType.FLOAT32);
+            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
             ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3);
             byteBuffer.order(ByteOrder.nativeOrder());
 
-            // get 1D array of 112 * 112 pixels in image
+            // get 1D array of 224 * 224 pixels in image
             int [] intValues = new int[imageSize * imageSize];
             image.getPixels(intValues, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
 
@@ -129,16 +134,16 @@ public class HomeFragment extends Fragment {
             for(int i = 0; i < imageSize; i++){
                 for(int j = 0; j < imageSize; j++){
                     int val = intValues[pixel++]; // RGB
-                    byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 1.f));
-                    byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 1.f));
-                    byteBuffer.putFloat((val & 0xFF) * (1.f / 1.f));
+                    byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 255.f));
+                    byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 255.f));
+                    byteBuffer.putFloat((val & 0xFF) * (1.f / 255.f));
                 }
             }
 
             inputFeature0.loadBuffer(byteBuffer);
 
             // Runs model inference and gets result.
-            ModelBalanced30k64128256.Outputs outputs = model.process(inputFeature0);
+            ModelUnquant.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             float[] confidences = outputFeature0.getFloatArray();
@@ -163,7 +168,7 @@ public class HomeFragment extends Fragment {
                     for (int i = 0; i < classes.length; i++) {
                         s.append(String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100));
                     }
-                    accuracy.setText(s);
+                    //accuracy.setText(s);
                 }
 
                 else {
@@ -178,7 +183,7 @@ public class HomeFragment extends Fragment {
             }
 
             viewModel.setImageClassified(image);
-            //accuracy.setText("");
+            accuracy.setText("");
 
             // Releases model resources if no longer used.
             model.close();
