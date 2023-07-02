@@ -34,6 +34,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
 import com.example.anythinggreen.ml.All256NoL2Dropout7;
+import com.example.anythinggreen.ml.AutoModel646464Drop7Global;
 import com.example.anythinggreen.ml.M64128256256GlobalAveragePooling2D;
 import com.example.anythinggreen.ml.Model12;
 import com.example.anythinggreen.ml.Model2;
@@ -118,7 +119,7 @@ public class HomeFragment extends Fragment {
 
     public void classifyImage(Bitmap image){
         try {
-            ModelUnquant model = ModelUnquant.newInstance(getActivity().getApplicationContext());
+            AutoModel646464Drop7Global model = AutoModel646464Drop7Global.newInstance(getActivity().getApplicationContext());
 
             // Creates inputs for reference.
             TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
@@ -143,7 +144,7 @@ public class HomeFragment extends Fragment {
             inputFeature0.loadBuffer(byteBuffer);
 
             // Runs model inference and gets result.
-            ModelUnquant.Outputs outputs = model.process(inputFeature0);
+            AutoModel646464Drop7Global.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             float[] confidences = outputFeature0.getFloatArray();
@@ -168,7 +169,7 @@ public class HomeFragment extends Fragment {
                     for (int i = 0; i < classes.length; i++) {
                         s.append(String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100));
                     }
-                    //accuracy.setText(s);
+                    accuracy.setText(s);
                 }
 
                 else {
@@ -179,7 +180,7 @@ public class HomeFragment extends Fragment {
 
             else {
                 viewModel.setClassification(getString(R.string.res_home));
-                accuracy.setText("");
+//                accuracy.setText("");
             }
 
             viewModel.setImageClassified(image);
