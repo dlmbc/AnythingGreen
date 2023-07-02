@@ -119,7 +119,7 @@ public class HomeFragment extends Fragment {
 
     public void classifyImage(Bitmap image){
         try {
-            AutoModel646464Drop7Global model = AutoModel646464Drop7Global.newInstance(getActivity().getApplicationContext());
+            ModelTeachableMachine model = ModelTeachableMachine.newInstance(getActivity().getApplicationContext());
 
             // Creates inputs for reference.
             TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
@@ -144,7 +144,7 @@ public class HomeFragment extends Fragment {
             inputFeature0.loadBuffer(byteBuffer);
 
             // Runs model inference and gets result.
-            AutoModel646464Drop7Global.Outputs outputs = model.process(inputFeature0);
+            ModelTeachableMachine.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             float[] confidences = outputFeature0.getFloatArray();
