@@ -184,7 +184,7 @@ public class HomeFragment extends Fragment {
             }
 
             viewModel.setImageClassified(image);
-            accuracy.setText("");
+            //accuracy.setText("");
 
             // Releases model resources if no longer used.
             model.close();
