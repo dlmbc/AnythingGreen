@@ -34,6 +34,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
 import com.example.anythinggreen.ml.All256NoL2Dropout7;
+import com.example.anythinggreen.ml.AutoModel100EpochUnbalancedNew;
 import com.example.anythinggreen.ml.AutoModel646464Drop7Global;
 import com.example.anythinggreen.ml.M64128256256GlobalAveragePooling2D;
 import com.example.anythinggreen.ml.Model12;
@@ -57,10 +58,14 @@ import com.example.anythinggreen.ml.ModelBalanced30kSemilowacc2;
 import com.example.anythinggreen.ml.ModelBalanced30kerica2;
 import com.example.anythinggreen.ml.ModelTeachableMachine;
 import com.example.anythinggreen.ml.ModelUnquant;
+import com.example.anythinggreen.ml.New64128256;
+import com.example.anythinggreen.ml.OldDataset;
+import com.example.anythinggreen.ml.Original5KEach50Epochs;
 
 public class HomeFragment extends Fragment {
 
-    TextView classified,result, accuracy;
+    TextView classified,result;
+    TextView[] accuracyPerClass = new TextView[6]; // One TextView for each class
     ImageView imageToClassify;
     Button picture, gallery;
     int imageSize = 224;
@@ -75,10 +80,16 @@ public class HomeFragment extends Fragment {
 
         classified = view.findViewById(R.id.classified);
         result = view.findViewById(R.id.result);
-        accuracy = view.findViewById(R.id.accuracy);
         imageToClassify = view.findViewById(R.id.imageToClassify);
         picture = view.findViewById(R.id.picture);
         gallery = view.findViewById(R.id.gallery);
+
+        accuracyPerClass[0] = view.findViewById(R.id.accuracy_clothes);
+        accuracyPerClass[1] = view.findViewById(R.id.accuracy_ewaste);
+        accuracyPerClass[2] = view.findViewById(R.id.accuracy_glass);
+        accuracyPerClass[3] = view.findViewById(R.id.accuracy_metal);
+        accuracyPerClass[4] = view.findViewById(R.id.accuracy_paper);
+        accuracyPerClass[5] = view.findViewById(R.id.accuracy_plastic);
 
         // Get a reference to the view model
         viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
@@ -119,7 +130,7 @@ public class HomeFragment extends Fragment {
 
     public void classifyImage(Bitmap image){
         try {
-            ModelTeachableMachine model = ModelTeachableMachine.newInstance(getActivity().getApplicationContext());
+            Original5KEach50Epochs model = Original5KEach50Epochs.newInstance(getActivity().getApplicationContext());
 
             // Creates inputs for reference.
             TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 224, 224, 3}, DataType.FLOAT32);
@@ -144,7 +155,7 @@ public class HomeFragment extends Fragment {
             inputFeature0.loadBuffer(byteBuffer);
 
             // Runs model inference and gets result.
-            ModelTeachableMachine.Outputs outputs = model.process(inputFeature0);
+            Original5KEach50Epochs.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             float[] confidences = outputFeature0.getFloatArray();
@@ -168,19 +179,19 @@ public class HomeFragment extends Fragment {
                     StringBuilder s = new StringBuilder();
                     for (int i = 0; i < classes.length; i++) {
                         s.append(String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100));
+                        accuracyPerClass[i].setText(String.format("%s: %.1f%%", classes[i], confidences[i] * 100));
                     }
-                    accuracy.setText(s);
                 }
 
                 else {
                     viewModel.setClassification(getString(R.string.error));
-                    accuracy.setText("");
+                    //accuracy.setText("");
                 }
             }
 
             else {
                 viewModel.setClassification(getString(R.string.res_home));
-//                accuracy.setText("");
+                //accuracy.setText("");
             }
 
             viewModel.setImageClassified(image);

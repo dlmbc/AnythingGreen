@@ -73,24 +73,97 @@
                 android:textColor="@color/primary"
                 android:textSize="27sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/accuracy"
+                app:layout_constraintBottom_toTopOf="@+id/accuracy_clothes"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/classified" />
 
             <TextView
-                android:id="@+id/accuracy"
+                android:id="@+id/accuracy_clothes"
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/result" />
+
+            <TextView
+                android:id="@+id/accuracy_ewaste"
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="105dp"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/accuracy_paper"
+                app:layout_constraintEnd_toStartOf="@id/accuracy_glass"
+                app:layout_constraintHorizontal_bias="0.53"
+                app:layout_constraintStart_toStartOf="@id/accuracy_clothes"
+                app:layout_constraintTop_toBottomOf="@+id/result" />
+
+            <TextView
+                android:id="@+id/accuracy_glass"
                 style="@style/Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintTop_toBottomOf="@+id/result" />
+
+            <TextView
+                android:id="@+id/accuracy_metal"
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="12dp"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/accuracy_clothes"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/accuracy_paper"
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="105dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="12dp"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/accuracy_plastic"
+                app:layout_constraintHorizontal_bias="0.53"
+                app:layout_constraintStart_toStartOf="@id/accuracy_metal"
+                app:layout_constraintTop_toBottomOf="@id/accuracy_ewaste"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/accuracy_plastic"
+                style="@style/Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="12dp"
+                android:textAlignment="center"
+                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/result" />
+                app:layout_constraintTop_toBottomOf="@id/accuracy_glass"
+                app:layout_constraintVertical_bias="0.0" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
